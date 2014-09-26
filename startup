@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "Doing autorun script ..."
+sudo /home/pi/bin/robo-halt/robo-halt &
+sudo python /home/pi/bin/robo-com/robo-com.py &
+sudo python /home/pi/bin/robo-web/robo-web.py &
