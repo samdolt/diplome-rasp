@@ -29,6 +29,20 @@ def led():
         com.led_write(led, 1)     
     return ""
 
+@app.route('/go-to-line.cgi', methods=['POST', 'GET'])
+def gotoline():
+    com.data_write(0x51, 1)
+    com.data_write(0x50, 1)
+    com.data_write(0x70, 1)
+    return ""
+
+@app.route('/line-follow.cgi', methods=['POST', 'GET'])
+def linefollow():
+    com.data_write(0x71, 1)
+    com.data_write(0x51, 1)
+    com.data_write(0x50, 1)
+    return ""
+
 @app.route('/up.cgi', methods=['POST', 'GET'])
 def up():
     com.data_write(0x51, 1)
@@ -55,6 +69,11 @@ def left():
     
 @app.route('/stop.cgi', methods=['POST', 'GET'])
 def stop():
+    com.data_write(0x51, 0)
+    com.data_write(0x50, 1)
+    com.data_write(0x70, 0)
+    com.data_write(0x71, 0)
+
     com.data_write(0x51, 0)
     com.data_write(0x50, 1)  
     return ""

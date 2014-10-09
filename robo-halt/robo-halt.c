@@ -63,7 +63,7 @@ void off_request (void) {
     if(!halt_process) {
         halt_process = 1;
         printf("Procédure d'exctinction enclenchée \n");
-        //system("sudo halt");
+        system("sudo halt");
     }
         
 }
